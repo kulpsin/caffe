@@ -1,3 +1,4 @@
+from __future__ import print_function
 # imports
 import json
 import time
@@ -100,8 +101,8 @@ class BatchLoader(object):
         # this class does some simple data-manipulations
         self.transformer = SimpleTransformer()
 
-        print "BatchLoader initialized with {} images".format(
-            len(self.indexlist))
+        print("BatchLoader initialized with {} images".format(
+            len(self.indexlist)))
 
     def load_next_image(self):
         """
@@ -153,10 +154,10 @@ def load_pascal_annotation(index, pascal_root):
                          'cow', 'diningtable', 'dog', 'horse',
                          'motorbike', 'person', 'pottedplant',
                          'sheep', 'sofa', 'train', 'tvmonitor')
-    class_to_ind = dict(zip(classes, xrange(21)))
+    class_to_ind = dict(zip(classes, range(21)))
 
     filename = osp.join(pascal_root, 'Annotations', index + '.xml')
-    # print 'Loading: {}'.format(filename)
+    # print('Loading: {}'.format(filename))
 
     def get_data_from_tag(node, tag):
         return node.getElementsByTagName(tag)[0].childNodes[0].data
@@ -209,8 +210,8 @@ def print_info(name, params):
     """
     Output some info regarding the class
     """
-    print "{} initialized for split: {}, with bs: {}, im_shape: {}.".format(
+    print("{} initialized for split: {}, with bs: {}, im_shape: {}.".format(
         name,
         params['split'],
         params['batch_size'],
-        params['im_shape'])
+        params['im_shape']))

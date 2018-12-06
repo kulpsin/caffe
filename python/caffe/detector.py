@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Do windowed detection by classifying a number of images/crops at once,
 optionally using the selective search window proposal method.

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 classify.py is an out-of-the-box image classifer callable from the command line.
 

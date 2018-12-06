@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+from __future__ import print_function
+
 from mincepie import mapreducer, launcher
 import gflags
 import os
@@ -71,7 +73,7 @@ class PILResizeCrop:
             img.save(out, 'JPEG', quality=75)
 
 class ResizeCropImagesMapper(mapreducer.BasicMapper):
-    '''The ImageNet Compute mapper. 
+    '''The ImageNet Compute mapper.
     The input value would be the file listing images' paths relative to input_folder.
     '''
     def map(self, key, value):
@@ -97,13 +99,13 @@ class ResizeCropImagesMapper(mapreducer.BasicMapper):
                                                               FLAGS.output_side_length)
             except Exception, e:
                 # we ignore the exception (maybe the image is corrupted?)
-                print line, Exception, e
+                print(line, Exception, e)
         yield value, FLAGS.output_folder
 
 mapreducer.REGISTER_DEFAULT_MAPPER(ResizeCropImagesMapper)
 mapreducer.REGISTER_DEFAULT_REDUCER(mapreducer.NoPassReducer)
 mapreducer.REGISTER_DEFAULT_READER(mapreducer.FileReader)
 mapreducer.REGISTER_DEFAULT_WRITER(mapreducer.FileWriter)
- 
+
 if __name__ == '__main__':
     launcher.launch()

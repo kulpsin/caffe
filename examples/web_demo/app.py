@@ -1,6 +1,6 @@
 import os
 import time
-import cPickle
+import pickle
 import datetime
 import logging
 import flask
@@ -109,7 +109,7 @@ class ImagenetClassifier(object):
         'bet_file': (
             '{}/data/ilsvrc12/imagenet.bet.pickle'.format(REPO_DIRNAME)),
     }
-    for key, val in default_args.iteritems():
+    for key, val in default_args.items():
         if not os.path.exists(val):
             raise Exception(
                 "File for {} is missing. Should be at: {}".format(key, val))
@@ -139,7 +139,7 @@ class ImagenetClassifier(object):
             ])
         self.labels = labels_df.sort('synset_id')['name'].values
 
-        self.bet = cPickle.load(open(bet_file))
+        self.bet = pickle.load(open(bet_file))
         # A bias to prefer children nodes in single-chain paths
         # I am setting the value to 0.1 as a quick, simple model.
         # We could use better psychological models here...

@@ -25,5 +25,5 @@ done
 for NOTEBOOK_FILENAME in $(find examples -depth -iname "*.ipynb"); do
     DOCS_FILENAME=$GATHERED_DIR/$NOTEBOOK_FILENAME
     mkdir -p `dirname $DOCS_FILENAME`
-    python scripts/copy_notebook.py $NOTEBOOK_FILENAME $DOCS_FILENAME
+    python3 scripts/copy_notebook.py $NOTEBOOK_FILENAME $DOCS_FILENAME
 done

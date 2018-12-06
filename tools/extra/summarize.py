@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+from __future__ import print_function
 
 """Net summarization tool.
 
@@ -58,7 +59,7 @@ def print_table(table, max_width):
             right_col += width
             row_str += cell + ' '
             row_str += ' ' * max(right_col - printed_len(row_str), 0)
-        print row_str
+        print(row_str)
 
 def summarize_net(net):
     disconnected_tops = set()

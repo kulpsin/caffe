@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 detector.py is an out-of-the-box windowed detector
 callable from the command line.
